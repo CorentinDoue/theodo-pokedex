@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Pokemon GB';
+  font-style: normal;
+  font-weight: 200;
+  src: url('./fonts/Pokemon GB.ttf'); /* IE9 Compat Modes */
+}
+
+
 body {
   margin: 0;
   padding: 0;

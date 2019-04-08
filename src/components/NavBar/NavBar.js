@@ -11,6 +11,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 const styles = {
     root: {
         flexGrow: 1,
+        textAlign: 'center'
     },
     grow: {
         flexGrow: 1,

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
 import NavBar from "./components/NavBar/NavBar";
 import Pokemon from "./components/Pokemon/Pokemon";
+import {PokeContainer} from "./App.style";
 
 class App extends Component {
   render() {
@@ -11,11 +11,11 @@ class App extends Component {
       pokemons.push(<Pokemon key={idPokemon} idPokemon={idPokemon}/>);
     }
     return (
-      <div className="App">
+      <div>
         <NavBar />
-        <header className="App-header">
+        <PokeContainer>
           {pokemons}
-        </header>
+        </PokeContainer>
       </div>
     );
   }

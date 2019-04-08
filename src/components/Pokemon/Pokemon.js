@@ -1,5 +1,6 @@
 import * as React from "react";
 import {convertPoundsToKilograms, getFirstAbility} from "./Pokemon.service";
+import {PokeCard} from "./Pokemon.style";
 
 
 class Pokemon extends React.Component{
@@ -28,12 +29,12 @@ class Pokemon extends React.Component{
     render() {
         if (this.state.pokemon) {
             return (
-                <div>
-                    <h3>{this.state.pokemon.name}</h3>
+                <PokeCard>
+                    <h2><u>{this.state.pokemon.name.toUpperCase()}</u></h2>
                     <img src={this.state.pokemon.sprites.front_default}/>
                     <p>First ability : {getFirstAbility(this.state.pokemon)}</p>
                     <p>Weight : {convertPoundsToKilograms(this.state.pokemon.weight)} kg</p>
-                </div>
+                </PokeCard>
             );
         } else {
             return null;
