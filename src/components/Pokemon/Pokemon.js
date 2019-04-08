@@ -4,6 +4,8 @@ import {PokeCard} from "./Pokemon.style";
 import Avatar from "@material-ui/core/Avatar";
 import {withStyles} from "@material-ui/core";
 import Drawer from "@material-ui/core/Drawer";
+import Button from "@material-ui/core/Button";
+import {Link} from "react-router-dom";
 
 const styles = {
     avatar: {
@@ -13,6 +15,9 @@ const styles = {
         backgroundColor: 'white',
         cursor: 'pointer'
     },
+    button: {
+        color: 'white'
+    }
 };
 
 class Pokemon extends React.Component{
@@ -63,6 +68,9 @@ class Pokemon extends React.Component{
                             <img src={this.state.pokemon.sprites.front_default}/>
                             <p><u>First ability :</u> {getFirstAbility(this.state.pokemon)}</p>
                             <p><u>Weight :</u> {convertPoundsToKilograms(this.state.pokemon.weight)} kg</p>
+                            <Button variant="contained" color="primary">
+                                <Link to={`/detail_page/${this.props.idPokemon}`}>More</Link>
+                            </Button>
                         </PokeCard>
                     </Drawer>
                 </div>
