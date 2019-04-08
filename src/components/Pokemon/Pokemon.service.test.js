@@ -28,10 +28,10 @@ describe('Tests for convertPoundsToKilograms', () => {
     it('Should return 0 for 0 pound', () => {
         expect(convertPoundsToKilograms(0)).toEqual(0);
     })
-    it('Should return 0.453592 for 1 pound', () => {
-        expect(convertPoundsToKilograms(1)).toEqual(0.453592);
+    it('Should return 0.45 for 1 pound', () => {
+        expect(convertPoundsToKilograms(1)).toEqual(0.45);
     })
     it('Should return 23*0.453592 for 23 pound', () => {
-        expect(convertPoundsToKilograms(23)).toEqual(23*0.453592);
+        expect(convertPoundsToKilograms(23)).toEqual(Math.round(0.453592 * 23 * 100) / 100);
     })
 });

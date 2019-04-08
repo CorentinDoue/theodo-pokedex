@@ -7,5 +7,5 @@ export function getFirstAbility(pokemon) {
 }
 
 export function convertPoundsToKilograms(pounds) {
-    return 0.453592 * pounds;
+    return Math.round(0.453592 * pounds * 100) / 100;
 }
