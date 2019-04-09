@@ -9,7 +9,7 @@ import {Redirect, Route, Switch} from "react-router-dom";
 
 class App extends Component {
   render() {
-    let pokemons = [];
+    let pokemons = []; // j'ai l'impression que ce n'est pas utilisé
     for (let idPokemon = 1; idPokemon < 100; idPokemon++) {
       pokemons.push(<Pokemon key={idPokemon} idPokemon={idPokemon}/>);
     }

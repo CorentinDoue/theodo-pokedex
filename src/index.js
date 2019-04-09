@@ -6,7 +6,8 @@ import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
 
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter> {/* Généralement on ne rend qu'un seul composant ici, en l'occurence App.
+    Le BrowserRouter devrait être rendu dans App également. */}
         <App />
     </BrowserRouter>,
     document.getElementById('root'));
