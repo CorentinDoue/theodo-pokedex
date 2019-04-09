@@ -1,14 +1,6 @@
 import React, {Component} from "react";
-import {
-    convertPoundsToKilograms,
-    getAbilities,
-    getFirstAbility,
-    getMoves,
-    getTypes
-} from "../components/Pokemon/Pokemon.service";
-import {PokeCard} from "../components/Pokemon/Pokemon.style";
 import {withStyles} from "@material-ui/core";
-import PokemonDetail from "../components/Pokemon/PokemonDetail";
+import Pokemon from "../components/Pokemon/Pokemon";
 
 const styles = {
     detailPage: {
@@ -25,7 +17,7 @@ class DetailPage extends Component {
 
         return (
             <div className={classes.detailPage}>
-                <PokemonDetail idPokemon={this.props.match.params.id} />
+                <Pokemon idPokemon={this.props.match.params.id} details={true}/>
             </div>
         );
     }

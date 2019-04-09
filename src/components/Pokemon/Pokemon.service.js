@@ -1,41 +1,38 @@
 import React from "react";
 
-// fait des early return dans toutes tes fonctions
+
 export function getFirstAbility(pokemon) {
-    if (pokemon && pokemon.abilities && pokemon.abilities[0]) {
-        return pokemon.abilities[0].ability.name;
-    } else {
+    if (!pokemon || !pokemon.abilities || !pokemon.abilities.length) {
         return null;
     }
+
+    return pokemon.abilities[0].ability.name;
 }
 
-// là tu manipules des objets JSX, ce qui est beaucoup moins facile que des objets JS
-// ce que je ferais, c'est return directement pokemon.abilities.map(ability => ability.ability.name)
 export function getAbilities(pokemon) {
-    if (pokemon && pokemon.abilities && pokemon.abilities[0]) {
-        // tu ne dois jamais mettre des index en tant que key dans un objet JSX
-        return <div><ul>{pokemon.abilities.map((ability, index) => <li key={index}>{ability.ability.name}</li>)}</ul></div>;
-    } else {
+    if (!pokemon || !pokemon.abilities || !pokemon.abilities.length) {
         return null;
     }
+
+    return pokemon.abilities.map(ability => ability.ability.name);
 }
 
-// pareil ici
+
 export function getMoves(pokemon) {
-    if (pokemon && pokemon.moves && pokemon.moves[0]) {
-        return <div><ul>{pokemon.moves.map((move, index) => <li key={index}>{move.move.name}</li>)}</ul></div>;
-    } else {
+    if (!pokemon || !pokemon.moves || !pokemon.moves.length) {
         return null;
     }
+
+    return pokemon.moves.map(move => move.move.name);
 }
 
-// pareil ici
+
 export function getTypes(pokemon) {
-    if (pokemon && pokemon.types && pokemon.types[0]) {
-        return <div><ul>{pokemon.types.map((type, index) => <li key={index}>{type.type.name}</li>)}</ul></div>;
-    } else {
+    if (!pokemon || !pokemon.types || !pokemon.types.length) {
         return null;
     }
+
+    return pokemon.types.map(type => type.type.name);
 }
 
 export function convertPoundsToKilograms(pounds) {
