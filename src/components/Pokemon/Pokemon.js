@@ -21,31 +21,36 @@ const styles = {
 };
 
 class Pokemon extends React.Component{
-    idPokemon;
-    constructor (props) {
+    idPokemon; // c'est quoi ?
+
+    constructor (props) { // tu n'as plus besoin de passer par un constructor maintenant
         super (props);
         this.state = {
             drawerOpen: false
         };
     }
 
+    // tu peux écrire directement
+    // state = {
+    //     drawerOpen: false
+    // }
+
     componentDidMount() {
         this.getPokemon(this.props.idPokemon);
     }
-    async getPokemon(id) {
+    async getPokemon(id) { // trop bien que tu utilises async/await
         try {
-            let response = await fetch(
-                `https://pokeapi.co/api/v2/pokemon/${id}`,
+            let response = await fetch( // utilise toujours const au lieu de let, à moins que tu mutes ta variable, ce qui n'est pas conseillé
+                `https://pokeapi.co/api/v2/pokemon/${id}`, // crée une constante pour mettre l'URL dedans
             );
             let pokemon = await response.json();
-            // console.log(pokemon);
-            this.setState({pokemon});
+            this.setState({pokemon}); // bien que tu utilises ce sucre synthaxique !
         } catch (error) {
             console.error(error);
         }
     }
 
-    toggleDrawer = (open) => () => {
+    toggleDrawer = (open) => () => { // top cette utilisation des arrow functions
         this.setState({
             drawerOpen: open,
         });
@@ -53,6 +58,12 @@ class Pokemon extends React.Component{
 
     render() {
         const { classes } = this.props;
+        // c'est mieux de faire un early return pour que ton code soit moins indenté et plus lisible
+        // c'est à dire
+        // if (!this.state.pokemon) {
+        //    return null;
+        //}
+        // return <MyComponent />
         if (this.state.pokemon) {
             return (
                 <div>
@@ -68,7 +79,7 @@ class Pokemon extends React.Component{
                             <img src={this.state.pokemon.sprites.front_default}/>
                             <p><u>First ability :</u> {getFirstAbility(this.state.pokemon)}</p>
                             <p><u>Weight :</u> {convertPoundsToKilograms(this.state.pokemon.weight)} kg</p>
-                            <Button variant="contained" color="primary">
+                            <Button variant="contained" color="primary"> {/* Alors soit tu mets un bouton, soit tu mets un lien, mais pas les deux. Au niveau du HTML, ce n'est pas cohérent, des navigateurs risques de faire des trucs chelous, notemment pour les mal voyants. */}
                                 <Link to={`/detail_page/${this.props.idPokemon}`}>More</Link>
                             </Button>
                         </PokeCard>

@@ -8,7 +8,7 @@ const styles = {
     }
 };
 
-class PokemonDetail extends React.Component{
+class PokemonDetail extends React.Component{ // j'ai l'impression d'avoir déjà vu ce composant :)
     idPokemon;
     constructor (props) {
         super (props);
