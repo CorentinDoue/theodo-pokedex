@@ -1,6 +1,3 @@
-import React from "react";
-
-
 export function getFirstAbility(pokemon) {
     if (!pokemon || !pokemon.abilities || !pokemon.abilities.length) {
         return null;

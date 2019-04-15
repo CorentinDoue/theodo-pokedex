@@ -12,12 +12,16 @@ const styles = {
 };
 
 class DetailPage extends Component {
+    componentDidMount() {
+        this.props.requestPokemon(parseInt(this.props.match.params.id, 10));
+    }
     render() {
-        const { classes } = this.props;
+        const { classes, pokemons, ...other } = this.props;
+        const pokemon = pokemons.find(pokemon => pokemon.id === parseInt(this.props.match.params.id, 10));
 
         return (
             <div className={classes.detailPage}>
-                <Pokemon idPokemon={this.props.match.params.id} details={true}/>
+                <Pokemon {...other} {...pokemon} details={true}/>
             </div>
         );
     }
